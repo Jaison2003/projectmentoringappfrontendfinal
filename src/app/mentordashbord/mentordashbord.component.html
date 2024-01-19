@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+     
+         DYPN
+    </a>
+  </nav>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor dashboard</title>
+    <style>
+        body {
+            background-color: #24292e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h4 {
+            color: #61dafb;
+        }
+
+        p, span {
+            color: #ffffff;
+        }
+
+        .datcard {
+            background-color: #2c3136;
+            color: #ffffff;
+            text-decoration: none;
+            display: block;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .datcard:hover {
+            background-color: #3a3f44;
+        }
+
+        .go-corner {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 50px 50px 0;
+            border-color: transparent #ffffff transparent transparent;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        .center {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-danger {
+            background-color: #d9534f;
+            border-color: #d9534f;
+        }
+
+        .btn-danger:hover {
+            background-color: #c9302c;
+            border-color: #ac2925;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h4 class="my-5 display-5 fw-bold ls-tight">MENTOR <span>DASHBOARD</span></h4>
+
+    <p class="lead">The mentoring app dashboard serves as a centralized and user-friendly interface that facilitates seamless communication and collaboration between mentors and mentees...</p>
+
+    <div class="row">
+        <div class="col-md-4">
+            <a class="datcard my-3" href="/mentorviewpge">
+                <span class="h6">View Projects</span>
+                <p>Here you can see the allotted projects and students</p>
+                <div class="go-corner"></div>
+            </a>
+        </div>
+
+     
+
+        <div class="col-md-4">
+            <a class="datcard my-3" href="/mentorgradeing">
+                <span class="h6">Grades</span>
+                <p>evalute the students work,provide marks and comments </p>
+                <div class="go-corner"></div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a class="datcard my-3" href="/mentorstudymetirial">
+                <span class="h6">Study materials</span>
+                <p>Add study materials </p>
+                <div class="go-corner"></div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a class="datcard my-3" href="/mentoredit">
+                <span class="h6">View Submitted Projects</span>
+                <p>Here you can see submitted projects by students</p>
+                <div class="go-corner"></div>
+            </a>
+        </div>
+
+        <!-- <div class="col-md-4">
+            <a class="datcard my-3" href="/mentorfilter"> -->
+                <!-- <span class="h6">Filter</span> -->
+                <!-- <p>Add study materials </p> -->
+                <!-- <div class="go-corner"></div>
+            </a>
+        </div> -->
+
+
+
+    </div>
+
+    <div class="center">
+        <!-- Logout button -->
+      
+        <button class="btn btn-danger my-3" ><a href="/">Logout</a></button>
+  
+    </div>
+</div>
+
+<!-- Optional: Add a script for the logout functionality -->
+
+
+</body>
+</html>

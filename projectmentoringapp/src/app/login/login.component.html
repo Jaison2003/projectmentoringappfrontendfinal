@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+     
+         DYPN
+    </a>
+  </nav>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT MENTORING APP</title>
+    <!-- Include your preferred CSS framework or stylesheets -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyWBzLxEHLo5i6U/C6nR1HTB4Qbyh17A6" crossorigin="anonymous"> -->
+    <style>
+        /* Add your custom styles here */
+        .background-radial-gradient {
+            background-color: #111;
+            background-image: radial-gradient(50% 50% at 50% 0%, #111 15%, #000 35%, #000 75%, #000 80%, transparent 100%),
+                radial-gradient(50% 50% at 50% 100%, #111 15%, #000 35%, #000 75%, #000 80%, transparent 100%);
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+
+        #radius-shape-1,
+        #radius-shape-2 {
+            animation: floatAnimation 5s infinite alternate;
+        }
+
+        @keyframes floatAnimation {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-20px);
+            }
+        }
+
+        #radius-shape-1 {
+            height: 220px;
+            width: 220px;
+            top: -60px;
+            left: -130px;
+            background: radial-gradient(#0fb2df, #167e72);
+            overflow: hidden;
+        }
+
+        #radius-shape-2 {
+            border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+            bottom: -60px;
+            right: -110px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(#16747e,#0fd1df);
+            overflow: hidden;
+        }
+
+        .bg-glass {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            backdrop-filter: saturate(200%) blur(25px);
+        }
+
+        /* Adjusted form width and height */
+        .card.bg-glass {
+            max-width: 600px;
+            margin: auto;
+            width: 100%;
+            height: auto;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: .95;
+            }
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        /* Sign In button hover effect */
+        .btn-primary:hover {
+            background-color: #11a0aa; /* Change to your preferred color */
+        }
+
+        /* Animation for the title */
+        .display-5 {
+            opacity: 0;
+            animation: fadeInTitle 2s forwards;
+        }
+
+        @keyframes fadeInTitle {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="background-radial-gradient overflow-hidden">
+        <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+            <div class="row gx-lg-5 align-items-center mb-5">
+                <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+                    <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+                        Do Your <br />
+                        <span style="color: hsl(81, 75%, 42%)">Project Now</span>
+                    </h1>
+                    <p class="mb-4 opacity-70" style="color: hsl(220, 23%, 97%)">
+
+                    </p>
+                </div>
+
+                <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+                    <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+                    <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+                    <div class="card bg-glass">
+                        <div class="card-body px-4 py-5 px-md-5">
+                            <form >
+                                <h1> Login</h1>
+                                <div class="form-outline mb-4">
+                                    <input type="email" id="form1Example1" class="form-control" placeholder="Email address" [(ngModel)]="credentials.email" name="email"  required/>
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <input type="password" id="form1Example2" class="form-control" placeholder="Password" [(ngModel)]="credentials.password" name="password"  required/>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col d-flex justify-content-center">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                                            <label class="form-check-label" for="form1Example3">
+                                                Remember me
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <button (click)="log()" class="btn btn-primary btn-block btn-login">Sign in</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </section>
+    
+    </body>
+
+</html>

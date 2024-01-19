@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+   
+       DYPN
+  </a>
+</nav>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Allotted Projects - Project Mentoring App</title>
+  <!-- Include your preferred CSS framework or stylesheets -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyWBzLxEHLo5i6U/C6nR1HTB4Qbyh17A6" crossorigin="anonymous">
+  <style>
+    /* Add your custom styles here */
+    .background-radial-gradient {
+      background-color: #111;
+      background-image: radial-gradient(50% 50% at 50% 0%, #111 15%, #000 35%, #000 75%, #000 80%, transparent 100%),
+        radial-gradient(50% 50% at 50% 100%, #111 15%, #000 35%, #000 75%, #000 80%, transparent 100%);
+      background-size: cover;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+    }
+
+    #radius-shape-1,
+    #radius-shape-2 {
+      animation: floatAnimation 5s infinite alternate;
+    }
+
+    @keyframes floatAnimation {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(-20px);
+      }
+    }
+
+    #radius-shape-1 {
+      height: 220px;
+      width: 220px;
+      top: -60px;
+      left: -130px;
+      background: radial-gradient(#0877ab, #1b638a);
+      overflow: hidden;
+    }
+
+    #radius-shape-2 {
+      border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+      bottom: -60px;
+      right: -110px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient( #155a7e, #0877ab);
+      overflow: hidden;
+    }
+
+    .bg-glass {
+      background-color: rgba(255, 255, 255, 0.9) !important;
+      backdrop-filter: saturate(200%) blur(25px);
+    }
+
+    /* Adjusted form width and height */
+    .card.bg-glass {
+      max-width: 600px;
+      margin: auto;
+      width: 100%;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: .95;
+      }
+    }
+
+    .card-body {
+      padding: 30px;
+    }
+
+    .btn-primary:hover {
+      background-color: #075b8f;
+    }
+
+    /* Animation for form elements */
+    .form-group,
+    .btn-primary {
+      opacity: 0;
+      animation: fadeInForm 5s forwards;
+    }
+
+    .display-5 {
+      opacity: .95;
+      transition: transform 4s ease-in-out, opacity 1s ease-in-out;
+    }
+
+    .display-5:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    @keyframes fadeInForm {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<!-- ... (previous HTML code) ... -->
+
+<!-- ... (previous HTML code) ... -->
+
+<section class="background-radial-gradient overflow-hidden">
+  <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+    <div class="row gx-lg-5 align-items-center mb-5">
+
+      <!-- Student Registration Form Card -->
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card bg-glass">
+          <div class="card-body">
+            <h5 class="card-title">Add Student</h5>
+            <!-- Add your student registration form here -->
+            <form #studentForm="ngForm" (ngSubmit)="read()">
+              <div class="form-group">
+                <label for="studentname">Student Name</label>
+                <input name="studentname" type="text" class="form-control" id="mentorname" placeholder="Enter student name" [(ngModel)]="studentname" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input name="email" type="email" class="form-control" id="email" placeholder="Enter email" [(ngModel)]="email" required email (ngModelChange)="checkEmail(studentForm)">
+                <div *ngIf="studentForm.controls['email']?.hasError('emailExists')" class="text-danger">
+                  Email already exists.
+                </div>
+                <div *ngIf="studentForm.controls['email']?.invalid && studentForm.controls['email']?.touched && !studentForm.controls['email']?.hasError('emailExists')" class="text-danger">
+                  Please enter a valid email address.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input name="phone" type="tel" class="form-control" id="phone" placeholder="Enter phone number" [(ngModel)]="phone" required pattern="[0-9]{10}">
+                <div *ngIf="studentForm.controls['phone']?.invalid && studentForm.controls['phone']?.touched" class="text-danger">
+                  Phone number must be 10 digits.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="education qualification">Education Qualification</label>
+                <input name="education qualification" type="text" class="form-control" id="education qualification" placeholder="Enter education qualification" [(ngModel)]="educationqualification" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input name="password" type="password" class="form-control" id="password" placeholder="Enter your password" [(ngModel)]="password" required minlength="6">
+                <div *ngIf="studentForm.controls['password']?.invalid && studentForm.controls['password']?.touched" class="text-danger">
+                  Password must be at least 6 characters long.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input name="confirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" [(ngModel)]="confirmPassword" required>
+                <div *ngIf="password !== confirmPassword" class="text-danger">
+                  Passwords do not match.
+                </div>
+              </div>
+              <br>
+              <button type="submit" [disabled]="studentForm.invalid" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+    <!-- Table Section -->
+ 
+          
+          <!-- Bootstrap Table -->
+          <!DOCTYPE html>
+<html>
+<style>
+table, th, td {
+border:1px solid black;
+}
+</style>
+
+<script>
+function editRow(button) {
+  var row = button.closest('tr');
+  var cells = row.getElementsByTagName('td');
+
+  // Assuming you have 4 cells (columns) in each row
+  var mentorName = cells[0].innerText;
+  var email = cells[1].innerText;
+  var phone = cells[2].innerText;
+  var skill = cells[3].innerText;
+
+  // Set values in the edit form (you need to create a modal for editing)
+  document.getElementById('editMentorName').value = mentorName;
+  document.getElementById('editEmail').value = email;
+  document.getElementById('editPhone').value = phone;
+  document.getElementById('editSkill').value = skill;
+
+  // Show the edit modal (assuming you have a modal with id 'editModal')
+  $('#editModal').modal('show');
+}
+
+function deleteRow(button) {
+  var row = button.closest('tr');
+  row.parentNode.removeChild(row);
+}
+</script>
+<body>
+
+<!-- <h2> Online Student</h2> -->
+
+<!-- <table style="width:100%">
+<tr>
+  <th>Student Name</th>
+  <th>Email</th>
+  <th>Phone</th>
+  <th>Qualification</th>
+</tr>
+<tr *ngFor="let i of viewstudent">
+  <td>{{i.studentname}}</td>
+  <td>{{i.email}}</td>
+  <td>{{i.phone}}</td>
+  <td>{{i.educationqualification}}</td>
+  
+  <td>
+    <br>
+    <button class="btn btn-warning btn-sm" onclick="editRow(this)">Edit</button>
+    <br>
+    <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button>
+  </td>
+</tr> -->
+
+ <!-- Edit Modal -->
+ <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+ aria-hidden="true">
+ <div class="modal-dialog" role="document">
+   <div class="modal-content">
+     <div class="modal-header">
+       <h5 class="modal-title" id="editModalLabel">Edit Mentor</h5>
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <div class="modal-body">
+       <!-- Add your student edit form here -->
+       <form>
+         <div class="form-group">
+           <label for="editMentorName">Student Name </label>
+           <input name="editMentorName" type="text" class="form-control" id="editMentorName" required>
+         </div>
+         <div class="form-group">
+           <label for="editEmail">Email</label>
+           <input name="editEmail" type="text" class="form-control" id="editEmail" required>
+         </div>
+         <div class="form-group">
+           <label for="editPhone">Phone</label>
+           <input name="editPhone" type="text" class="form-control" id="editPhone" required>
+         </div>
+         <div class="form-group">
+           <label for="editSkill">Education Qualification</label>
+           <input name="editSkill" type="text" class="form-control" id="editSkill" required>
+         </div>
+         <br>
+         <button type="submit" class="btn btn-primary">Save Changes</button>
+       </form>
+     </div>
+   </div>
+ </div>
+
+ <script>
+  function validateForm() {
+    // Get form elements
+    var studentName = document.getElementById('mentorname').value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
+    var educationQualification = document.getElementById('educationqualification').value;
+    var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirmPassword').value;
+
+    // Simple validation example (you can customize this based on your requirements)
+    if (studentName.trim() === '' || email.trim() === '' || phone.trim() === '' || educationQualification.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') {
+      alert('All fields must be filled out');
+      return false;
+    }
+
+    if (password !== confirmPassword) {
+      alert('Passwords do not match');
+      return false;
+    }
+
+    // Additional validation logic...
+
+    // If all validations pass, the form will be submitted
+    return true;
+  }
+</script>
+</div>
+
+<!-- <tr>
+  <td>Jino</td>
+  <td>Jino@gmail.com</td>
+  <td>9876457890</td>
+  <td>Graduated</td>
+  <td>
+    <button class="btn btn-warning btn-sm" onclick="editRow(this)">Edit</button>
+    <br>
+    <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button>
+  </td>
+</tr>
+<tr>
+  <td>Sreedev</td>
+  <td>sreedev@gmail.com</td>
+  <td>7867890987</td>
+  <td>Graduated</td>
+  <td>
+    <button class="btn btn-warning btn-sm" onclick="editRow(this)">Edit</button>
+    <br>
+    <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button>
+  </td>
+</tr>
+<tr>
+  <td>Gokul</td>
+  <td>gokul@gmail.com</td>
+  <td>8890788090</td>
+  <td>Graduated</td>
+  <td>
+    <button class="btn btn-warning btn-sm" onclick="editRow(this)">Edit</button>
+    <br>
+    <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button>
+  </td>
+</tr> -->
+
+<!-- </table> -->
+
+
+
+</body>
+</html>
+
+
+        <!-- </div>
+      </div>
+    </div> -->
+
+  </div>
+</div>
+</section>
+
+<!-- ... (remaining HTML code) ... -->
+
+
+<!-- ... (remaining HTML code) ... -->
+
+
+<!-- Student Registration Modal -->
+<div class="modal fade" id="studentModal" tabindex="-1" role="dialog" aria-labelledby="studentModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="studentModalLabel">Add New Mentor</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Add your student registration form here -->
+        <form>
+          <div class="form-group">
+            <label for="studentName">Student Name</label>
+            <input type="text" class="form-control" id="studentName" placeholder="Enter student name">
+          </div>
+          <div class="form-group">
+            <label for="mentor">Mentor</label>
+            <input type="text" class="form-control" id="mentor" placeholder="Enter mentor name">
+          </div>
+          <div class="form-group">
+            <label for="project">Project</label>
+            <input type="text" class="form-control" id="project" placeholder="Enter project name">
+          </div><br>
+          
+         <br> <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <!-- Include Bootstrap JS library -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+    integrity="sha384-eMNCO4w1Q3e5pNus5MOLc2JqKv8PPLl+UxlZadFO9gyBe5g/CBXdP7wsYAL1L5ZI" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyWBzLxEHLo5i6U/C6nR1HTB4Qbyh17A6" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

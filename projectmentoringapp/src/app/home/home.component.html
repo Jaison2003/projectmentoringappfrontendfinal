@@ -1,0 +1,223 @@
+<app-navbar></app-navbar>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Add your meta tags, title, and stylesheet links here -->
+    <!-- ... -->
+
+    <!-- Add any additional styles specific to your content -->
+    <style>
+        /* Add your custom styles here */
+        /* ... */
+
+        /* Custom styles for the education app content */
+        body {
+            background-color: #111; /* Dark background color */
+            color: #fff; /* Light text color */
+            overflow: hidden; /* Hide overflow to prevent scrollbars */
+        }
+
+        .education-app-content,
+        .feature-item,
+        .about-section,
+        .big-card {
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        .feature-item {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .feature-item:hover {
+            transform: scale(1.05);
+        }
+
+        .social-icons a {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        .big-card {
+            cursor: pointer;
+            transform-origin: center;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInBigCards {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+    </style>
+    
+</head>
+
+<body>
+
+    <!-- Your existing code -->
+
+    <section class="background-radial-gradient overflow-hidden">
+        <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+            <div class="row gx-lg-5 align-items-center mb-5">
+                <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+                    <!-- Your existing content -->
+                    <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+                        Do Your <br />
+                        <span style="color: hsl(140, 98%, 51%)">Project Now</span>
+                    </h1>
+                    <p class="mb-4 opacity-70" style="color:#08877a">
+                        <!-- Your existing content -->
+                    </p>
+                </div>
+
+                <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+                    <!-- Education app content -->
+                    <div class="education-app-content">
+                        <div class="feature-item">
+                            <i class="feature-icon fas fa-chalkboard-teacher"></i>
+                            <h3 class="feature-title">Expert Mentoring</h3>
+                            <p>Get guidance from experienced mentors in your field.</p>
+                        </div>
+
+                       
+                            <div class="feature-item">
+                                <i class="feature-icon fas fa-chalkboard-teacher"></i>
+                            <h3 class="feature-title">Rich Learning Resources</h3>
+                            <p>Access a vast library of learning materials for your projects.</p>
+                        </div>
+
+                        <div class="feature-item">
+                            <i class="feature-icon fas fa-chalkboard-teacher"></i>
+                            <h3 class="feature-title">Personalized Learning Paths</h3>
+                            <p>Receive customized learning paths to enhance your skills.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Big cards section -->
+    <section class="big-cards-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 big-card" onclick="toggleDetails('details1')">
+                    <div class="card mentoring-card">
+                        <img src="https://cfw.paymoapp.com/wp-content/uploads/2018/12/project-manager-mentor.jpg"
+                            class="card-img-top" alt="Project 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Project 1</h5>
+                            <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, alias porro dignissimos laudantium totam quia vel quibusdam nulla, ea doloribus explicabo fugit reprehenderit voluptatibus excepturi quasi sequi ipsa. Quas, fugiat!.</p>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 big-card" onclick="toggleDetails('details2')">
+                    <div class="card mentoring-card">
+                        <img
+                            src="https://media.licdn.com/dms/image/D4D12AQF5ttxBuXBeSw/article-cover_image-shrink_720_1280/0/1695557675812?e=2147483647&v=beta&t=vppDwqvqdSQfAiUkSlVWahlGm66a5LNs59WmwomsPh0"
+                            class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Project 2</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta voluptas, corrupti exercitationem illo eligendi ab est cumque necessitatibus quos maxime modi nisi id minus optio neque, sit quisquam saepe excepturi?</p>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 big-card" onclick="toggleDetails('details3')">
+                    <div class="card mentoring-card">
+                        <img
+                            src="https://talentforgrowth.com/wp-content/uploads/2019/03/Mentoring-1.jpg"
+                            class="card-img-top" alt="Project 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Project 3</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quia sunt id voluptates eligendi cupiditate assumenda repudiandae! Nostrum architecto ducimus totam sequi inventore dignissimos voluptatum perferendis! Sed necessitatibus voluptate suscipit?.</p>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="responsive-container-block bigContainer">
+        <div class="responsive-container-block Container">
+          <p class="text-blk heading">
+        
+          </p>
+          
+   <!-- About section -->
+   <section class="about-section">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-lg-12">
+                <!-- Text content column -->
+                <div class="about-content">
+                    <h2>About Us</h2>
+                    <p>
+                        Welcome to the DYPN App, your go-to platform for project success! We are passionate about
+                        fostering a collaborative environment where individuals can connect with experienced mentors to elevate
+                        their skills and drive project excellence.
+                    </p>
+                    <p>
+                        Our app provides a unique blend of expert mentoring, rich learning resources, and personalized learning paths.
+                        Whether you're a seasoned professional seeking guidance or a newcomer eager to learn, our platform is designed
+                        to meet your project needs and accelerate your growth.
+                    </p>
+                    <p>
+                        Join us on this exciting journey as we build a community dedicated to knowledge sharing, skill development,
+                        and project success. Together, let's empower each other and create a dynamic space where projects thrive and
+                        learning never stops.
+                    </p>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        </div>
+      </div>
+
+    
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <div class="footer">
+        <div class="container">    
+            <div class="row text-center">            
+                <div class="col-lg-12 col-sm-12 col-xs-12">
+                    <div class="footer_menu">
+                       
+                    </div>            
+                    <div class="footer_copyright">
+                        <p>© 2023 DYPN. All Rights Reserved.</p>
+                    </div>  
+                    <div class="footer_profile">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>            
+                </div><!--- END COL -->              
+            </div><!--- END ROW -->          
+        </div><!--- END CONTAINER -->
+    </div>
+
+    
+
+
+</body>
+
+</html>
